@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de multiplicar</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <script src="./js/bootstrap.js"></script>
+    <script src='app.js'></script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-2">
+                <h1>Tabla de multiplicar</h1>
+                <form action="/tablas" method="post">
+                    <p>Numero tabla:</p>
+                    <input type="number" id="tabla" name="tabla" required value="<%=tabla%>">
+                    <button type="submit" >Enviar</button>
+
+                </form>
+
+                <%
+
+                
+                if(tabla != null){
+                    let res = 0
+                    for(let cont=1; cont<=10; cont++){
+                        res = cont*tabla
+                        %>
+                        <h3> <%=tabla%> = <%=cont%> * <%=res%></h3>
+                        <%
+                    }
+                    
+                    
+                }
+
+                %>
+               
+
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
