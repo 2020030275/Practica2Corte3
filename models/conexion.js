@@ -7,7 +7,7 @@ const conexion = mysql.createConnection({
     user: "root",
 
     // Your password
-    password: "",
+    password: "Contra123_.",
 
     database: "sistema"
 
