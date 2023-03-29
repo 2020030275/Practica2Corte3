@@ -1,5 +1,5 @@
 const json = require('express/lib/response');
-const resolve = require('path/posix');
+// const resolve = require('path/posix');
 const promise = require('../models/conexion.js');
 const conexion = require('../models/conexion.js');
 
