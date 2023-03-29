@@ -47,7 +47,7 @@ alumnodb.consultar = function consultar(){
 alumnodb.consultarMatricula = function consultarMatricula(matricula){
     return new Promise(function(resolve, reject){
         let alumno = []
-        var query = 'SELECT * FROM alumno WHERE Matricula = ?'
+        var query = 'SELECT * FROM alumno WHERE matricula = ?'
         conexion.query(query, matricula, function(err, rows){
             if(err){
                 reject(err.message)
@@ -70,7 +70,7 @@ alumnodb.actualizar = function actualizar(alumno){
         //    }
         // }
         // var query = ' UPDATE  alumno SET ? WHERE Matricula = ?'
-        var query = 'UPDATE alumno SET Nombre = ?,  Domicilio = ?,  Sexo = ?, Especialidad = ? WHERE Matricula = ?'
+        var query = 'UPDATE alumno SET nombre = ?,  domicilio = ?,  sexo = ?, especialidad = ? WHERE matricula = ?'
         conexion.query(query, [alumno.Nombre, alumno.Domicilio, alumno.Sexo, alumno.Especialidad, alumno.Matricula], function(err, result){
             if(err){
                 reject(err.message)
@@ -86,7 +86,7 @@ alumnodb.actualizar = function actualizar(alumno){
 
 alumnodb.eliminar = function eliminar(matricula){
     return new Promise(function(resolve, reject){
-        conexion.query('DELETE FROM alumno WHERE Matricula = ?', matricula, function(err, result){
+        conexion.query('DELETE FROM alumno WHERE matricula = ?', matricula, function(err, result){
             if(err){
                 reject(err)
             }else{

@@ -85,15 +85,15 @@ router.get('/consultar',async(req,res)=>{
 
 router.post('/consultarMatricula',async(req,res)=>{
 
-    Matricula = req.body.Matricula
-    let resultado = await db.consultarMatricula(Matricula)
+    matricula = req.body.Matricula
+    let resultado = await db.consultarMatricula(matricula)
     res.json(resultado)
 })
 
 router.post('/eliminar',async(req,res)=>{
 
-    Matricula = req.body.Matricula
-    let resultado = await db.eliminar(Matricula)
+    matricula = req.body.Matricula
+    let resultado = await db.eliminar(matricula)
     res.json(resultado)
 })
 
@@ -125,8 +125,8 @@ router.get('/',(req,res)=>{
 })
 
 router.post('/consultarPorMatricula',async (req,res)=>{
-    Matricula = req.body.Matricula
-    let resultado = await db.consultarMatricula(Matricula)
+    matricula = req.body.Matricula
+    let resultado = await db.consultarMatricula(matricula)
     let lista = await db.consultar()
     res.render('index.html',{titulo: "Listado de alumnos", listado: lista, campos:resultado})
     
