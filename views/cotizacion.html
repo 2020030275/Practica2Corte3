@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotizacion</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="row" style="background-color: turquoise;">
+            <div class="col-md-6 offset-md-3">
+                <center>
+                    <h1>Cotizacion</h1>
+                    <form action="/cotizacion" method="post">
+                      <label for="">Valor del automovil: </label>
+                      <input type="number" name="valor" id="valor" required="true">
+                      <br>
+                      <label for="">Porcentaje de pago inicial: </label>
+                      <select name="pInicial" id="pInicial">
+                        <option value="10">10%</option>
+                        <option value="20">20%</option>
+                        <option value="30">30%</option>
+                        <option value="50">50%</option>
+                        <option value="70">70%</option>
+                      </select>
+                      <br>
+              
+                      <label for="">Plazos</label>
+                      <select name="plazos" id="plazos">
+                        <option value="12">12 meses</option>
+                        <option value="24">24 meses</option>
+                        <option value="36">36 meses</option>
+                        <option value="48">48 meses</option>
+                        <option value="60">60 meses</option>
+                        <option value="72">72 meses</option>
+                      </select>
+                      <br>
+                      <button type="submit">Enviar</button>
+              
+                    </form>
+                  </center>
+
+
+            </div>
+            
+        </div>
+        <div class="row" style="background-color: burlywood;">
+            <div class="col-md-6 offset-md-2">
+                <% 
+                var pagoInicial=0;
+                var totalFin=0;
+                var pagoMensual=0;
+            
+                if(pInicial!=null){
+                
+                pagoInicial = valor * (pInicial/100);
+                totalFin = valor - pagoInicial;
+                pagoMensual = totalFin/plazos;
+            
+                }
+                %>
+                <br>
+                <hr>
+                <h3>Resumen de la cotización</h3>
+                <br>
+                <hr>
+                Valor del automovil: <%=valor%><br>
+                Porcentaje de pago Inicial: <%=pInicial%><br>
+                Plazos: <%=plazos%> meses<br>
+                <br>
+            
+                Pago inicial: <%=pagoInicial%><br>
+                Total a financiar: <%=totalFin%><br>
+                Pago mensual: <%=pagoMensual%><br>
+
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
